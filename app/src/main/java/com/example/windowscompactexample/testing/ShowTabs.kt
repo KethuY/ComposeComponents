@@ -19,22 +19,13 @@ import com.example.windowscompactexample.components.IconTextTabs
             Icons.Default.AccountBox to "Finance",
             Icons.Default.AccountCircle to "Takaful"
         )
-
         Column {
             var selectedTab by remember { mutableIntStateOf(0) }
-            var selectedTab1 by remember { mutableIntStateOf(0) }
 
             IconTextTabs(
                 tabs = tabs,
                 selectedIndex = selectedTab,
                 onTabSelected = { selectedTab = it }
-            )
-
-            IconTextTabs(
-                tabs = tabs,
-                selectedIndex = selectedTab1,
-                onTabSelected = { selectedTab1 = it },
-                isRippleEnable = false
             )
         }
     }
