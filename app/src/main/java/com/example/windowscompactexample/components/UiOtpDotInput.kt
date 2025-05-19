@@ -1,6 +1,7 @@
 package com.example.windowscompactexample.components
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -10,10 +11,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
+import androidx.compose.foundation.text2.BasicTextField2
+import androidx.compose.foundation.text2.input.InputTransformation
+import androidx.compose.foundation.text2.input.TextFieldState
+import androidx.compose.foundation.text2.input.maxLengthInChars
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateListOf
@@ -32,11 +36,11 @@ import androidx.compose.ui.platform.TextToolbar
 import androidx.compose.ui.platform.TextToolbarStatus
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 
 private const val EMPTY_CHAR = ' '
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun UiOtpDotInput(
     modifier: Modifier = Modifier,
@@ -53,7 +57,7 @@ fun UiOtpDotInput(
     val otp = remember { mutableStateListOf<Char>().apply { repeat(otpLength) { add(EMPTY_CHAR) } } }
     val focusRequester = remember { FocusRequester() }
     val otpString = otp.joinToString("").replace(" ", "")
-
+    val state = remember { TextFieldState() }
     // to hide the cursor
     val customSelectionColors = TextSelectionColors(
         handleColor = Color.Transparent,
@@ -112,13 +116,14 @@ fun UiOtpDotInput(
             LocalTextSelectionColors provides customSelectionColors,
             LocalTextToolbar provides disabledToolbar
         ) {
-            BasicTextField(
+            BasicTextField2(
                 modifier = Modifier
                     .disableLongPress()
                     .matchParentSize()
                     .focusRequester(focusRequester)
                     .alpha(0f) ,// invisible but active,,
                 value = otpString,
+                inputTransformation = InputTransformation.maxLengthInChars(otpLength),
                 onValueChange = { value ->
                     onTextChange.invoke(value)
                     val trimmed = value.filter { it.isDigit() }.take(otpLength)
@@ -128,8 +133,7 @@ fun UiOtpDotInput(
                         onOtpEntered(trimmed)
                     }
                 },
-                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword, imeAction = ImeAction.Done),
-                visualTransformation = VisualTransformation.None
+                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword, imeAction = ImeAction.Done)
             )
         }
     }
