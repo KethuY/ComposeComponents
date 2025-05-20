@@ -40,10 +40,10 @@ fun AdibBaseChip(
             val isSelected = selectedOption == option
             val selectedBorderColor = if (isSelected) Color.Transparent else borderColor
             InputChip(
-                colors = InputChipDefaults.inputChipColors().copy(
-                    selectedContainerColor = selectedContainerColor,
-                    selectedLabelColor = selectedLabelColor,
+                colors = InputChipDefaults.inputChipColors(
                     labelColor = labelColor,
+                    selectedLabelColor = selectedLabelColor,
+                    selectedContainerColor = selectedContainerColor,
                 ),
                 border = BorderStroke(borderRadius, selectedBorderColor),
                 selected = isSelected,
