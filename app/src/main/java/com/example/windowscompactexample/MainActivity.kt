@@ -15,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.windowscompactexample.components.Details
 import com.example.windowscompactexample.testing.ChipGroupDemo
-import com.example.windowscompactexample.testing.RadioButtonSample
-import com.example.windowscompactexample.testing.RadioGroupSample
 import com.example.windowscompactexample.testing.ShowAuthPin
 import com.example.windowscompactexample.testing.ShowCheckBoxes
 import com.example.windowscompactexample.testing.ShowTabs
