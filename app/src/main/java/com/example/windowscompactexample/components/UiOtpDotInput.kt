@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
@@ -31,12 +32,14 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalTextToolbar
 import androidx.compose.ui.platform.TextToolbar
 import androidx.compose.ui.platform.TextToolbarStatus
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.Dp
+import com.example.windowscompactexample.utils.Utils.KeyboardVisibilityObserver
 
 private const val EMPTY_CHAR = ' '
 
@@ -54,6 +57,7 @@ fun UiOtpDotInput(
     onTextChange: (String) -> Unit,
     onOtpEntered: (String) -> Unit
 ) {
+    val focusManager = LocalFocusManager.current
     val otp = remember { mutableStateListOf<Char>().apply { repeat(otpLength) { add(EMPTY_CHAR) } } }
     val focusRequester = remember { FocusRequester() }
     val otpString = otp.joinToString("").replace(" ", "")
@@ -83,12 +87,20 @@ fun UiOtpDotInput(
         }
     }
 
+
+    KeyboardVisibilityObserver { visible ->
+        println("🧭 Kethu Keyboard is ${if (visible) "OPEN" else "CLOSED"}")
+        if (!visible) {
+            focusManager.clearFocus()
+        }
+    }
+
+
     Box(modifier = modifier.disableLongPress()) {
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
-
                 .clickable(interactionSource = remember {  MutableInteractionSource()}, indication = null) {
                 focusRequester.requestFocus()
             }
@@ -123,7 +135,7 @@ fun UiOtpDotInput(
                     .focusRequester(focusRequester)
                     .alpha(0f) ,// invisible but active,,
                 value = otpString,
-                inputTransformation = InputTransformation.maxLengthInChars(otpLength),
+                inputTransformation = InputTransformation.maxLengthInChars(otpLength),// to limit the length of the otp
                 onValueChange = { value ->
                     onTextChange.invoke(value)
                     val trimmed = value.filter { it.isDigit() }.take(otpLength)
@@ -133,7 +145,12 @@ fun UiOtpDotInput(
                         onOtpEntered(trimmed)
                     }
                 },
-                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword, imeAction = ImeAction.Done)
+                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.NumberPassword, imeAction = ImeAction.Done),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        focusManager.clearFocus() // Clear focus when done
+                    }
+                ),
             )
         }
     }

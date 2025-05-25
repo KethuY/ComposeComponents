@@ -27,3 +27,10 @@ val StyleBodyMedium = TextStyle(
     fontSize = Dimens.SizeFontMobileBody.sp,
     color = ColorTextBase
 )
+
+val Style24H3Medium = TextStyle(
+    fontFamily = FontFamily(Font(R.font.roboto_medium)),
+    fontWeight = FontWeight.Medium,
+    fontSize = 24.sp,
+    color = ColorTextBase,
+)

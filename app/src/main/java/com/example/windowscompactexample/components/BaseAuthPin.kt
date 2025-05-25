@@ -38,7 +38,6 @@ fun BaseAuthPin(
     Column(modifier = modifier) {
       UiOtpDotInput(
             inputSize = inputSize,
-            modifier = Modifier.padding(horizontal = SizeSpacingMedium.dp),
             otpLength = pinLength,
             filledColor = filledColor,
             unfilledColor = unfilledColor,

@@ -56,6 +56,7 @@ import com.example.windowscompactexample.ui.theme.StyleCaptionRegular
 
     Spacer(modifier = Modifier.height(32.dp))
     UiAuthPin(
+        inputLength = 4,
         modifier = Modifier.padding(20.dp),
         description = description,
         otpVerificationState = verificationState,
