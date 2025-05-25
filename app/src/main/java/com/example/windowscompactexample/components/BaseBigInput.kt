@@ -50,6 +50,7 @@ import com.example.windowscompactexample.ui.theme.ColorSemanticErrorTwo
 import com.example.windowscompactexample.ui.theme.Style24H3Medium
 import com.example.windowscompactexample.ui.theme.StyleCaptionRegular
 import com.example.windowscompactexample.utils.AmountUtils
+import com.example.windowscompactexample.utils.AmountUtils.properDecimalInput
 import com.example.windowscompactexample.utils.AmountUtils.removeSpecialCharFromAmount
 import com.example.windowscompactexample.utils.Utils.KeyboardVisibilityObserver
 
@@ -116,7 +117,7 @@ fun BaseBigInput(
                 modifier = Modifier.padding(top = 16.dp, bottom = 4.dp)
             )
         }
-       UiInputTextField(
+        UiInputTextField(
             leadingIcon = leadingIcon,
             inputPrefix = inputPrefix,
             inputText = inputText,
@@ -282,7 +283,7 @@ data class AmountInputTransformation(
 
         println("Kethu transformInput isErrorEnabled: $isTopErrorEnabled")
 
-        val amount = valueWithChanges.toString().removeSpecialCharFromAmount()
+        val amount = valueWithChanges.toString().properDecimalInput()
 
         if (isLimitsAvailable()) {
             val isAmountWithInLimits = when {
@@ -325,5 +326,6 @@ data class AmountInputTransformation(
             valueWithChanges.replace(0, valueWithChanges.length, formatted)
         }
     }
+
     private fun isLimitsAvailable() = minLimit != null || maxLimit != null
 }

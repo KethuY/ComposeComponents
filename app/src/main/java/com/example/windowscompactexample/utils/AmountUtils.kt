@@ -59,17 +59,16 @@ object AmountUtils {
     }
 
 
-    fun getInputLength(amount: Double?): Int {
-        if (amount == null) {
-            val defaultAmount = BigDecimal.valueOf(DEFAULT_MAX_AMOUNT_LIMIT)
-            val defaultLength = defaultAmount.toPlainString().length
-            println("Kethu getInputLength $defaultLength ${defaultAmount.toPlainString()}")
-            return defaultAmount.toPlainString().length
-        }
-        return if (amount <= 0) {
-            return 0
-        } else amountFormatter(amount).length
+    fun getInputLength(amount: Double?) = when {
+        amount == null -> getFormattedDefaultAmount().length // 100,000,000,000,000.00
+        amount <= 0 -> 0
+        else -> amountFormatter(amount).length
     }
+
+    private fun getFormattedDefaultAmount() =
+        DecimalFormat(FORMAT_AMOUNT_WITH_NO_DECIMALS, DecimalFormatSymbols(Locale.US)).format(
+            BigDecimal(DEFAULT_MAX_AMOUNT_LIMIT.toString())
+        )
 
     // formatte amount keyboard done button click
     fun formatDecimalPoint(amount: String): String {
@@ -92,4 +91,20 @@ object AmountUtils {
     fun getMaxLimit(
         amount: Double?
     ) = amount ?: DEFAULT_MAX_AMOUNT_LIMIT
+
+    fun String.properDecimalInput(): Double {
+        val sb = StringBuilder()
+        var dotSeen = false
+
+        for (c in this) {
+            when {
+                c.isDigit() -> sb.append(c)
+                c == '.' && !dotSeen -> {
+                    sb.append(c)
+                    dotSeen = true
+                }
+            }
+        }
+        return sb.toString().removeSpecialCharFromAmount()
+    }
 }
