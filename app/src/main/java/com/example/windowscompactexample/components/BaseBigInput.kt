@@ -18,6 +18,7 @@ import androidx.compose.foundation.text2.input.TextFieldBuffer
 import androidx.compose.foundation.text2.input.TextFieldCharSequence
 import androidx.compose.foundation.text2.input.TextFieldLineLimits
 import androidx.compose.foundation.text2.input.maxLengthInChars
+import androidx.compose.foundation.text2.input.placeCursorAtEnd
 import androidx.compose.foundation.text2.input.rememberTextFieldState
 import androidx.compose.foundation.text2.input.then
 import androidx.compose.material3.HorizontalDivider
@@ -174,7 +175,7 @@ internal fun UiInputTextField(
     }
 
     // Format and filter input
-    LaunchedEffect(textFieldState.text) {
+  /*  LaunchedEffect(textFieldState.text) {
         val input = textFieldState.text.toString()
             .replace(",", "")
 
@@ -182,12 +183,12 @@ internal fun UiInputTextField(
         val cleaned = input.filterIndexed { index, c ->
             c.isDigit() || (c == '.' && input.indexOf('.') == index)
         }
-        rawValue.value = cleaned
+
 
         println("✅ Kethu LaunchedEffect: cleaned $cleaned")
 
         onTextChange(cleaned)
-    }
+    }*/
 
     Column(modifier = modifier) {
         Row(
@@ -207,7 +208,7 @@ internal fun UiInputTextField(
                 fontWeight = FontWeight.SemiBold
             )
 
-            Box(
+            Row (
                 modifier = Modifier
                     .fillMaxWidth()
                     .focusRequester(focusRequester)
