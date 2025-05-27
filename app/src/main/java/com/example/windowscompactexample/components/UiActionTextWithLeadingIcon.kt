@@ -11,37 +11,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.windowscompactexample.ui.theme.AdibColorTextWhite
 import com.example.windowscompactexample.ui.theme.ColorInteraction
 import com.example.windowscompactexample.ui.theme.StyleBodyMedium
 
 @Composable
 fun UiActionTextWithLeadingIcon(
     modifier: Modifier = Modifier,
-    leadingIcon: Int,
+    leadingIcon: Int? = null,
     leadingIconTint: Color = ColorInteraction,
     horizontalSpacing: Dp = 8.dp,
     title: String,
     titleColor: Color = ColorInteraction,
+    titleStyle: TextStyle = StyleBodyMedium,
     horizontalAlignment: Arrangement.Horizontal = Arrangement.Start
 ) {
     Row(
-        modifier = modifier.padding(vertical = 16.dp),
+        modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = horizontalAlignment
     ) {
-        Icon(
-            imageVector = ImageVector.vectorResource(leadingIcon),
-            contentDescription = null,
-            tint = leadingIconTint
-        )
+        if (leadingIcon != null) {
+            Icon(
+                modifier = Modifier.padding(end = horizontalSpacing),
+                imageVector = ImageVector.vectorResource(leadingIcon),
+                contentDescription = null,
+                tint = leadingIconTint
+            )
+        }
         Text(
-            modifier = Modifier.padding(start = horizontalSpacing),
             text = title,
+            textAlign = TextAlign.Center,
             fontWeight = FontWeight.SemiBold,
-            style = StyleBodyMedium,
+            style = titleStyle,
             color = titleColor
         )
     }

@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">WindowsCompactExample</string>
+
+
+    <string name="regex_alphanumerics_with_space" translatable="false">[a-zA-Z 0-9]+</string>
+    <string name="regex_address" translatable="false">[a-zA-Z 0-9#-/_,&amp;]+</string>
+    <string name="regex_alphanumerics_without_space" translatable="false">[a-zA-Z0-9]+</string>
+    <string name="regex_alphabets_with_spaces" translatable="false">[a-zA-Z ]+</string>
+    <string name="regex_alphabets_with_spaces_and_brackets" translatable="false">[a-zA-Z ()]+</string>
+    <string name="regex_transfer_additional_details" translatable="false">[a-zA-Z 0-9.()]+</string>
+    <string name="regex_transfer_promo_code" translatable="false">[A-Za-z0-9 .%_-]+</string>
+    <string name="regex_alphanumerics_with_space_dash_slash" translatable="false">[a-zA-Z 0-9-/()]+</string>
+    <string name="title_exchange_rate_display_format" translatable="false">%1$s 1.00 = %3$s %2$s</string>
+    <string name="regex_numerical_value" translatable="false">[0-9]+</string>
+    <string name="regex_numerical_decimal_comma_value" translatable="false">[0-9]+[,]+[0-9]+[.][0-9]{2}</string>
+    <string name="regex_wallet_mobile_number" translatable="false">[.+*#{}()-]</string>
+    <string name="regex_alphanumerics_arabic_with_space" translatable="false">[a-zA-Z 0-9\\u0600-\\u06FF]+</string>
+    <string name="regex_search_alphanumeric_arabic" translatable="false">[a-zA-Z 0-9\.,\\u0600-\\u06FF]+</string>
+    <string name="regex_visa_master_card" translatable="false">^[0-9]{0,16}$</string>
+    <string name="regex_vd_alphanumerics_some_spl_chars" translatable="false">[a-zA-Z0-9 .-]+</string>
+    <string name="regex_numerics_and_plus" translatable="false">[0-9\+]+</string>
+    <string name="regex_space_and_plus" translatable="false">[+ ]</string>
+    <string name="regex_vd_accept_all" translatable="false">[.]</string>
+    <string name="regex_vd_alphanumerics_space_with_spl_chars" translatable="false">[a-zA-Z0-9 .-@_+%]+</string>
+    <string name="regex_alphanumerics_include_hyphen_without_space" translatable="false">^[a-zA-Z0-9-]+$</string>
+    <string name="regex_ssn_number" translatable="false">^[0-9|]{1,11}$</string>
+
 </resources>
