@@ -175,7 +175,7 @@ internal fun UiInputTextField(
     }
 
     // Format and filter input
-  /*  LaunchedEffect(textFieldState.text) {
+    LaunchedEffect(textFieldState.text) {
         val input = textFieldState.text.toString()
             .replace(",", "")
 
@@ -188,7 +188,7 @@ internal fun UiInputTextField(
         println("✅ Kethu LaunchedEffect: cleaned $cleaned")
 
         onTextChange(cleaned)
-    }*/
+    }
 
     Column(modifier = modifier) {
         Row(
@@ -320,7 +320,7 @@ data class AmountInputTransformation(
         }
         isTopErrorEnabled = false
         val newValue = valueWithChanges.toString()
-        val formatted = AmountUtils.getFormattedAmount(valueWithChanges.toString())
+        val formatted = formatMoney(newValue) //AmountUtils.getFormattedAmount(valueWithChanges.toString())
         println("Kethu AmountInputTransformation newValue: $newValue formatted: $formatted")
 
         if (formatted != newValue) {
@@ -329,4 +329,12 @@ data class AmountInputTransformation(
     }
 
     private fun isLimitsAvailable() = minLimit != null || maxLimit != null
+
+    private fun formatMoney(newValue:String): String {
+        val padded = newValue.padStart(3, '0') // Ensure at least 3 digits for cents
+        val dollars = padded.dropLast(2)
+        val cents = padded.takeLast(2)
+        return "${dollars.toInt()}.${cents}"
+    }
+
 }

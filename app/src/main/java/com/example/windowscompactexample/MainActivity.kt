@@ -73,6 +73,8 @@ import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontWebCaption
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeSpacingMedium
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeSpacingSmall
 import com.example.windowscompactexample.utils.Utils.KeyboardVisibilityObserver
+import com.example.windowscompactexample.testing.ShowInputUI
+import com.example.windowscompactexample.testing.PosStyleMoneyInput
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)
@@ -83,15 +85,12 @@ class MainActivity : ComponentActivity() {
             Scaffold(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(vertical = 60.dp)
+                    .padding(vertical = 60.dp, horizontal = 60.dp)
             ) { innerPadding ->
-                AdibBaseButton(
-                    textColor = Color.Blue,
-                    leadingIcon = R.drawable.ic_plus_round_solid,
-                    text = "Primary button", onClick = {
-                })
-             //   ShowInputUI()
 
+                Column() {
+                    PosStyleMoneyInput()
+                }
             }
         }
     }
