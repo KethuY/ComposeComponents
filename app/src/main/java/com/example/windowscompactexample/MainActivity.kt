@@ -55,6 +55,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.windowscompactexample.components.AdibBaseButton
@@ -90,6 +91,8 @@ class MainActivity : ComponentActivity() {
 
                 Column() {
                     PosStyleMoneyInput()
+
+                    Text(text = "12222222.00", style = Adib16BodyRegular.copy(baselineShift = BaselineShift(0.7f)))
                 }
             }
         }
