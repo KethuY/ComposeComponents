@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "WindowsCompactExample"
 include(":app")
- 
+include(":uikitmodule")

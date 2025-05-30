@@ -1,5 +1,7 @@
 package com.example.windowscompactexample
 
+import android.content.ComponentName
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -81,6 +83,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        toggleModuleIcon(shouldEnable = true) // Enable the module icon
         enableEdgeToEdge()
         setContent {
             Scaffold(
@@ -93,9 +96,28 @@ class MainActivity : ComponentActivity() {
                     PosStyleMoneyInput()
 
                     Text(text = "12222222.00", style = Adib16BodyRegular.copy(baselineShift = BaselineShift(0.7f)))
+
                 }
             }
         }
+    }
+
+
+
+    private fun toggleModuleIcon(shouldEnable: Boolean) {
+        val pm = applicationContext.packageManager
+        val componentName = ComponentName(applicationContext, "com.example.uikitmodule.UiKitActivity")
+
+        val newState = if (shouldEnable)
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+        else
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+
+        pm.setComponentEnabledSetting(
+            componentName,
+            newState,
+            PackageManager.DONT_KILL_APP
+        )
     }
 
     @OptIn(ExperimentalFoundationApi::class)
