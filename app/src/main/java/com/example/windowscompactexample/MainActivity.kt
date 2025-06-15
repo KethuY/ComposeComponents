@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -38,15 +39,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.windowscompactexample.components.Details
 import com.example.windowscompactexample.components.UiChip
 import com.example.windowscompactexample.components.UiMultiSelectionChip
-import com.example.windowscompactexample.components.Details
+import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults
+import com.example.windowscompactexample.components.account.UiAccountSelection
 import com.example.windowscompactexample.testing.ShowAuthPin
 import com.example.windowscompactexample.testing.ShowTabs
+import com.example.windowscompactexample.ui.theme.AdibColorSegmentMassTwo
 import com.example.windowscompactexample.ui.theme.ColorContainer
 import com.example.windowscompactexample.ui.theme.ColorInteraction
 import com.example.windowscompactexample.ui.theme.ColorSemanticSuccessTwo
@@ -64,32 +69,132 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()
                     .padding(vertical = 60.dp, horizontal = 20.dp)
             ) { innerPadding ->
-                val options = listOf("Option 1", "Option 2", "Option 3", "Option 4", "Option 5")
-                val options1 = listOf("100", "200", "300", "400", "500")
+
                 Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                    Text(text = stringResource(R.string.app_name), style = StyleBodyMedium, modifier = Modifier.padding(vertical = 16.dp))
-                    Text(text = "Over Flow Chip with Single Selection", style = StyleBodyMedium, modifier = Modifier.padding(vertical = 16.dp))
-                    OverFlowChip(options)
-                    Text(text = "Single line Chip with Single Selection", style = StyleBodyMedium,modifier = Modifier.padding(vertical = 16.dp))
-                    SingleLineChip(options)
-                    Text(text = "Single line Chip with Single Selection and no border", style = StyleBodyMedium,modifier = Modifier.padding(vertical = 16.dp))
-                    SingleLineChipWithoutBorder(options)
-                    Text(text = "Single line Chip with Single Selection and Icon, no border", style = StyleBodyMedium,modifier = Modifier.padding(vertical = 16.dp))
-                    SingleLineChipWithTrailingIcon(options1, Icons.Default.Done)
-                    SingleLineChipWithTrailingIcon(options, Icons.Default.Close)
-                    Text(text = "Multi selection  Chip with Single Selection and Icon, no border", style = StyleBodyMedium,modifier = Modifier.padding(vertical = 16.dp))
-                    MultiSelectionChip(options)
-                    Spacer(modifier = Modifier.height(32.dp))
-                    ShowTabs()
-                    Spacer(modifier = Modifier.height(32.dp))
-                    Details()
-                    Spacer(modifier = Modifier.height(32.dp))
-                    ShowAuthPin()
-                    Spacer(modifier = Modifier.height(32.dp))
-                    CustomSnackbarScaffold()
+
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        backgroundColor = Color.Unspecified,
+                        shape = RectangleShape,
+                        paddingValues = PaddingValues(0.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
+                        isSelectionIconVisible = true
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        backgroundColor = Color.Unspecified,
+                        shape = RectangleShape,
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
+                        isSelectionIconVisible = true
+                    )
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        isSelectionIconVisible = true
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        isSelectionIconVisible = true
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
+                        isSelectionIconVisible = true
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("To: Mohammed Ahmed • 1234 "),
+                        balanceTitle = null
+                    )
+
+                    UiAccountSelection(
+                        modifier = Modifier.padding(top = 16.dp),
+                        backgroundColor = AdibColorSegmentMassTwo,
+                        accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
+                        balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
+                        selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
+                        accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
+                        isSelectionIconVisible = true
+                    )
                 }
             }
         }
+    }
+
+    @Composable
+    private fun ChipComponents() {
+        val options = listOf("Option 1", "Option 2", "Option 3", "Option 4", "Option 5")
+        val options1 = listOf("100", "200", "300", "400", "500")
+
+        Text(
+            text = stringResource(R.string.app_name),
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        Text(
+            text = "Over Flow Chip with Single Selection",
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        OverFlowChip(options)
+        Text(
+            text = "Single line Chip with Single Selection",
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        SingleLineChip(options)
+        Text(
+            text = "Single line Chip with Single Selection and no border",
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        SingleLineChipWithoutBorder(options)
+        Text(
+            text = "Single line Chip with Single Selection and Icon, no border",
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        SingleLineChipWithTrailingIcon(options1, Icons.Default.Done)
+        SingleLineChipWithTrailingIcon(options, Icons.Default.Close)
+        Text(
+            text = "Multi selection  Chip with Single Selection and Icon, no border",
+            style = StyleBodyMedium,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+        MultiSelectionChip(options)
+        Spacer(modifier = Modifier.height(32.dp))
+        ShowTabs()
+        Spacer(modifier = Modifier.height(32.dp))
+        Details()
+        Spacer(modifier = Modifier.height(32.dp))
+        ShowAuthPin()
+        Spacer(modifier = Modifier.height(32.dp))
     }
 
     @Composable
@@ -115,7 +220,6 @@ class MainActivity : ComponentActivity() {
             }
         )
     }
-
 
 
     @Composable
@@ -208,7 +312,7 @@ fun CustomSnackbarScaffold() {
             ExtendedFloatingActionButton(
                 onClick = {
                     coroutineScope.launch {
-                        snackbarHostState.showSnackbar("",  duration = SnackbarDuration.Short)
+                        snackbarHostState.showSnackbar("", duration = SnackbarDuration.Short)
                     }
                 }
             ) {
