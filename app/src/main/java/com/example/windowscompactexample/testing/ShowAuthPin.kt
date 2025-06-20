@@ -15,8 +15,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.windowscompactexample.components.OtpVerificationState
-import com.example.windowscompactexample.components.UiAuthPin
+import com.example.windowscompactexample.components.pin.OtpVerificationState
+import com.example.windowscompactexample.components.pin.UiAuthPin
 import com.example.windowscompactexample.ui.theme.ColorSemanticErrorTwo
 import com.example.windowscompactexample.ui.theme.ColorTextSubdued
 import com.example.windowscompactexample.ui.theme.Dimens.SizeFontTwo

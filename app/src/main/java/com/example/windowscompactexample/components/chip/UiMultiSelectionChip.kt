@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.chip
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,11 +12,10 @@ import com.example.windowscompactexample.ui.theme.ColorInteraction
 import com.example.windowscompactexample.ui.theme.ColorTextBase
 
 @Composable
-fun UiChip(
+fun UiMultiSelectionChip(
     modifier: Modifier = Modifier,
     options: List<String>,
     selectedOptions: List<String>? = null,
-    selectedOption: String? = null,
     leadingIcon: ImageVector? = null,
     leadingIconTint: Color = Color.Unspecified,
     selectedContainerColor: Color = ColorContainer,
@@ -27,18 +26,16 @@ fun UiChip(
     borderRadius: Dp = 1.dp,
     isBorderRequired: Boolean = false,
     isHorizontalScroll: Boolean = false,
-    isMultiSelectRequired: Boolean = false,
     onOptionsSelected: ((List<String>) -> Unit)? = null,
-    onOptionSelected: ((String) -> Unit)? = null
 ) {
+
     BaseChip(
         modifier = modifier,
         options = options,
-        selectedOption = selectedOption,
         leadingIcon = leadingIcon,
         leadingIconTint = leadingIconTint,
         isHorizontalScroll = isHorizontalScroll,
-        isMultiSelectRequired = isMultiSelectRequired,
+        isMultiSelectRequired = true,
         isBorderRequired = isBorderRequired,
         selectedContainerColor = selectedContainerColor,
         labelColor = labelColor,
@@ -48,6 +45,5 @@ fun UiChip(
         containerColor = containerColor,
         selectedOptions = selectedOptions,
         onOptionsSelected = onOptionsSelected,
-        onOptionSelected = onOptionSelected
     )
 }

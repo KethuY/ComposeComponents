@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.example.windowscompactexample.pro.AdibImage
-import com.example.windowscompactexample.pro.AdibText
-import com.example.windowscompactexample.pro.uiDatamodels.AdibImageUiDataModel
-import com.example.windowscompactexample.pro.uiModel.AdibImageProperties
-import com.example.windowscompactexample.pro.uiModel.AdibTextProperties
+import com.example.windowscompactexample.components.pro.AdibImage
+import com.example.windowscompactexample.components.pro.AdibText
+import com.example.windowscompactexample.components.pro.uiDatamodels.AdibImageUiDataModel
+import com.example.windowscompactexample.components.pro.uiModel.AdibImageProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibTextProperties
 
 /**
  * @Author: Yerramma Kethu

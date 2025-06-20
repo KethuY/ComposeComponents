@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.pin
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.ExperimentalFoundationApi

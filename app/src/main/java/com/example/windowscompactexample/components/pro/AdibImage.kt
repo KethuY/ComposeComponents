@@ -1,9 +1,9 @@
-package com.example.windowscompactexample.pro
+package com.example.windowscompactexample.components.pro
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
-import com.example.windowscompactexample.pro.uiModel.AdibImageProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibImageProperties
 
 /**
  *

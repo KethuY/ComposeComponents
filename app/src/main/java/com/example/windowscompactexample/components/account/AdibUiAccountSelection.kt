@@ -14,10 +14,10 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.windowscompactexample.pro.uiDatamodels.AdibImageUiDataModel
-import com.example.windowscompactexample.pro.uiDatamodels.AdibTextUiDataModel
-import com.example.windowscompactexample.pro.uiModel.AdibImageProperties
-import com.example.windowscompactexample.pro.uiModel.AdibTextProperties
+import com.example.windowscompactexample.components.pro.uiDatamodels.AdibImageUiDataModel
+import com.example.windowscompactexample.components.pro.uiDatamodels.AdibTextUiDataModel
+import com.example.windowscompactexample.components.pro.uiModel.AdibImageProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibTextProperties
 import com.example.windowscompactexample.ui.theme.Adib14CaptionRegular
 import com.example.windowscompactexample.ui.theme.AdibColorInputsBackground
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontWebHfour

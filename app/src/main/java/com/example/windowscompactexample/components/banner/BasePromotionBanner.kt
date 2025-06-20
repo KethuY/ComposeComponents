@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.banner
+package com.example.windowscompactexample.components.banner
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -45,7 +45,7 @@ import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontWebCaption
  * @param clickAction : Click action
  */
 @Composable
-internal fun AdibBasePromotionBanner(
+internal fun BasePromotionBanner(
     title: String,
     description: String,
     @DrawableRes bannerIcon: Int,

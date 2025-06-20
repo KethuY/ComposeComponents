@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.pin
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable

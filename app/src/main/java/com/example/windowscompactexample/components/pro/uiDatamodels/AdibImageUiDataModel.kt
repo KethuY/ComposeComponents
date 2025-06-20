@@ -1,10 +1,10 @@
-package com.example.windowscompactexample.pro.uiDatamodels
+package com.example.windowscompactexample.components.pro.uiDatamodels
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
-import com.example.windowscompactexample.pro.uiModel.AdibImageProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibImageProperties
 
 /**
  *  @Author: Muhammad Ahad Asim
