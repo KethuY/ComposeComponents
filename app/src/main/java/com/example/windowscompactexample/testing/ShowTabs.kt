@@ -10,7 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.windowscompactexample.components.IconTextTabs
+import com.example.windowscompactexample.components.tabs.IconTextTabs
 
 @Composable
      fun ShowTabs() {

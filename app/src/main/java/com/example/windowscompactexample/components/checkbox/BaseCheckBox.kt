@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.checkbox
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource

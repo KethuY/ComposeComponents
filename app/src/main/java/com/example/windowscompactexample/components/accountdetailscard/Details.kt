@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.accountdetailscard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

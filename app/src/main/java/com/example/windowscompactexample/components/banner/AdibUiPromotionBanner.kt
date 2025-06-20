@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.banner
+package com.example.windowscompactexample.components.banner
 
 import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
@@ -60,7 +60,7 @@ fun AdibUiPromotionBanner(
         .wrapContentSize(),
     clickAction: (() -> Unit)? = null
 ) {
-    AdibBasePromotionBanner(
+    BasePromotionBanner(
         title = title,
         description = description,
         bannerIcon = bannerIcon,

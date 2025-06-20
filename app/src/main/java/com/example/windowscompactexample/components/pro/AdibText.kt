@@ -1,8 +1,8 @@
-package com.example.windowscompactexample.pro
+package com.example.windowscompactexample.components.pro
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import com.example.windowscompactexample.pro.uiModel.AdibTextProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibTextProperties
 
 /**
  *  @Author: Muhammad Ahad Asim

@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.checkbox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

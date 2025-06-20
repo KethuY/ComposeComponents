@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.chip
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.horizontalScroll

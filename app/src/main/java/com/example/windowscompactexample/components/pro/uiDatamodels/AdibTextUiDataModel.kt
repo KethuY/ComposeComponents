@@ -1,10 +1,10 @@
-package com.example.windowscompactexample.pro.uiDatamodels
+package com.example.windowscompactexample.components.pro.uiDatamodels
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
-import com.example.windowscompactexample.pro.uiModel.AdibTextProperties
+import com.example.windowscompactexample.components.pro.uiModel.AdibTextProperties
 
 /**
  *

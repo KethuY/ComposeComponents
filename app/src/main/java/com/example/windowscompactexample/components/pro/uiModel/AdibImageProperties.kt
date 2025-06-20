@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.pro.uiModel
+package com.example.windowscompactexample.components.pro.uiModel
 
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale

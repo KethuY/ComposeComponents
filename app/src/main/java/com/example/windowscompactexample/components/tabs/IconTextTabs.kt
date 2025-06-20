@@ -1,4 +1,4 @@
-package com.example.windowscompactexample.components
+package com.example.windowscompactexample.components.tabs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

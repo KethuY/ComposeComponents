@@ -35,9 +35,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.windowscompactexample.R
-import com.example.windowscompactexample.components.Details
-import com.example.windowscompactexample.components.UiChip
-import com.example.windowscompactexample.components.UiMultiSelectionChip
+import com.example.windowscompactexample.components.accountdetailscard.Details
+import com.example.windowscompactexample.components.chip.UiChip
+import com.example.windowscompactexample.components.chip.UiMultiSelectionChip
 import com.example.windowscompactexample.ui.theme.ColorContainer
 import com.example.windowscompactexample.ui.theme.ColorInteraction
 import com.example.windowscompactexample.ui.theme.ColorSemanticSuccessTwo
