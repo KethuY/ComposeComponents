@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.example.windowscompactexample.R
 import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults
 import com.example.windowscompactexample.components.account.UiAccountSelection
-import com.example.windowscompactexample.ui.theme.AdibColorSegmentMassTwo
+import com.example.windowscompactexample.ui.theme.ColorSegmentMassTwo
 
 /**
  * @Author: Yerramma Kethu
@@ -27,7 +27,6 @@ fun ShowAccountSelection() {
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
         accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
-        isSelectionIconVisible = true
     )
 
     UiAccountSelection(
@@ -38,14 +37,12 @@ fun ShowAccountSelection() {
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
         accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
-        isSelectionIconVisible = true
     )
     UiAccountSelection(
         modifier = Modifier.padding(top = 16.dp),
         accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account * 5014"),
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
-        isSelectionIconVisible = true
     )
 
     UiAccountSelection(
@@ -53,7 +50,6 @@ fun ShowAccountSelection() {
         accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
-        isSelectionIconVisible = true
     )
 
     UiAccountSelection(
@@ -62,7 +58,6 @@ fun ShowAccountSelection() {
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
         accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
-        isSelectionIconVisible = true
     )
 
     UiAccountSelection(
@@ -80,11 +75,10 @@ fun ShowAccountSelection() {
 
     UiAccountSelection(
         modifier = Modifier.padding(top = 16.dp),
-        backgroundColor = AdibColorSegmentMassTwo,
+        backgroundColor = ColorSegmentMassTwo,
         accountTitle = AdibAccountSelectionDefaults.accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
         balanceTitle = AdibAccountSelectionDefaults.balanceTitleDefaults("AED 2,666.00"),
         selectionIcon = AdibAccountSelectionDefaults.selectionIconDefaults(R.drawable.ic_drop_down),
         accountIcon = AdibAccountSelectionDefaults.accountIconDefaults(R.drawable.ic_logo),
-        isSelectionIconVisible = true
     )
 }

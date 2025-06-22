@@ -9,7 +9,6 @@ object Dimens {
     const val SizeSpacingSmall = 8
     const val SizeSpacingMedium = 16
     const val SizeSpacingXlarge = 32
-    const val IconSize = 11 // need to replace with tokens once available
 
 
     const val AdibSizeFontOne = 12
@@ -46,4 +45,6 @@ object Dimens {
     const val AdibSizeButtonHeightSecondary = 54
     const val AdibSizeButtonHeightTertiary = 54
     const val AdibIconSize = 11 // need to replace with tokens once available
+    const val AdibSizeSpacingEighteen = 18
+
 }

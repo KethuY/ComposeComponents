@@ -1,5 +1,7 @@
 package com.example.windowscompactexample.components.pro.uiModel
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.text2.input.InputTransformation
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import com.adib.mobile.uikit.base.AdibBaseView
@@ -21,4 +23,14 @@ interface AdibTextProperties : AdibBaseView {
     val maxLines: Int
     val overflow: TextOverflow
     val softWrap: Boolean
+}
+
+interface AdibAmountInputTextProperties : AdibBaseView {
+    val inputText: String
+    val textStyle: TextStyle
+    val prefix: String
+    val placeholder: String
+    val availableAmount: Double?
+    @OptIn(ExperimentalFoundationApi::class)
+    val inputTransformation: InputTransformation?
 }

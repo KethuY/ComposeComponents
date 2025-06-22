@@ -25,18 +25,16 @@ internal fun BaseAccountSelection(
     balanceDisplayName: AdibTextProperties?,
     accountIcon: AdibImageProperties? = null,
     selectionIcon: AdibImageProperties? = null,
-    isSelectionIconVisible: Boolean = false,
-    onAccountClick: (() -> Unit)? = null
+    onAccountSelection: (() -> Unit)? = null
 ) {
-   val  interactionSource = remember { MutableInteractionSource() }
+    val interactionSource = remember { MutableInteractionSource() }
 
     Row(modifier = modifier.clickable(
         interactionSource = interactionSource,
         indication = null
     ) {
-        if (isSelectionIconVisible) {
-            println("Kethu ${accountDisplayName.text} is selected")
-            onAccountClick?.invoke()
+        if (accountIcon != null) {
+            onAccountSelection?.invoke()
         }
     }) {
         if (accountIcon != null && accountIcon is AdibImageUiDataModel) {
@@ -49,7 +47,7 @@ internal fun BaseAccountSelection(
             accountDisplayName,
             balanceDisplayName
         )
-        if (selectionIcon != null && isSelectionIconVisible) {
+        if (selectionIcon != null) {
             AdibImage(selectionIcon)
         }
     }

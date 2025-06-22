@@ -19,7 +19,7 @@ import com.example.windowscompactexample.components.pro.uiDatamodels.AdibTextUiD
 import com.example.windowscompactexample.components.pro.uiModel.AdibImageProperties
 import com.example.windowscompactexample.components.pro.uiModel.AdibTextProperties
 import com.example.windowscompactexample.ui.theme.Adib14CaptionRegular
-import com.example.windowscompactexample.ui.theme.AdibColorInputsBackground
+import com.example.windowscompactexample.ui.theme.ColorInputsBackground
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontWebHfour
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeSpacingLarge
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeSpacingMedium
@@ -36,7 +36,7 @@ fun UiAccountSelection(
     accountTitle: AdibTextProperties,
     balanceTitle: AdibTextProperties?,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = AdibColorInputsBackground,
+    backgroundColor: Color = ColorInputsBackground,
     shape: Shape = RoundedCornerShape(AdibSizeFontWebHfour.dp),
     paddingValues: PaddingValues = PaddingValues(
         horizontal = AdibSizeFontWebHfour.dp,
@@ -44,8 +44,7 @@ fun UiAccountSelection(
     ),
     accountIcon: AdibImageProperties? = null,
     selectionIcon: AdibImageProperties? = null,
-    isSelectionIconVisible: Boolean = false,
-    onClick: (() -> Unit)? = null
+    onAccountSelection: (() -> Unit)? = null
 ) {
     BaseAccountSelection(
         modifier = modifier
@@ -55,13 +54,12 @@ fun UiAccountSelection(
         balanceDisplayName = balanceTitle,
         accountIcon = accountIcon,
         selectionIcon = selectionIcon,
-        isSelectionIconVisible = isSelectionIconVisible,
-        onAccountClick = onClick
+        onAccountSelection = onAccountSelection
     )
 }
 
 object AdibAccountSelectionDefaults {
-    private const val DEFAULT_ACCOUNT_ICON_CONTENT_DESC = "Account Icon"
+    const val DEFAULT_ACCOUNT_ICON_CONTENT_DESC = "Account Icon"
     private const val DEFAULT_SELECTION_ICON_CONTENT_DESC = "Selection Icon"
 
     fun accountTitleDefaults(

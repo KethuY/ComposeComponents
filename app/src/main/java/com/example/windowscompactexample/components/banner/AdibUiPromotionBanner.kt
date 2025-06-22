@@ -11,8 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.windowscompactexample.ui.theme.AdibColorSegmentSurface
-import com.example.windowscompactexample.ui.theme.AdibColorSurfaceBlueOne
+import com.example.windowscompactexample.ui.theme.ColorSegmentSurface
+import com.example.windowscompactexample.ui.theme.ColorSurfaceBlueOne
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontMobileHfour
 import com.example.windowscompactexample.ui.theme.Dimens.AdibSizeFontWebCaption
 
@@ -43,8 +43,8 @@ fun AdibUiPromotionBanner(
     title: String,
     description: String,
     @DrawableRes bannerIcon: Int,
-    boxColor: Color = AdibColorSurfaceBlueOne,
-    bannerColor: Color = AdibColorSegmentSurface,
+    boxColor: Color = ColorSurfaceBlueOne,
+    bannerColor: Color = ColorSegmentSurface,
     bannerTextLines: Int = 3,
     callActionLines: Int = 1,
     cardIconDesc: String? = null,
