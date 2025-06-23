@@ -8,28 +8,26 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults.accountIconDefaults
-import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults.accountTitleDefaults
-import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults.balanceTitleDefaults
-import com.example.windowscompactexample.components.account.AdibAccountSelectionDefaults.selectionIconDefaults
-import com.example.windowscompactexample.components.account.UiAccountSelection
-import com.example.windowscompactexample.components.input.amount.UIAccountSelectionWithInput
-import com.example.windowscompactexample.components.input.amount.UiAccountSelectionWithInputDivider
-import com.example.windowscompactexample.components.input.amount.UiAmountUIDefaults
-import com.example.windowscompactexample.components.input.amount.UiAmountUIDefaults.amountIcon
-import com.example.windowscompactexample.components.input.amount.UiAmountUIDefaults.smallInputAccountTitle
-import com.example.windowscompactexample.components.input.amount.UiSmallInput
-import com.example.windowscompactexample.components.input.models.AmountUICallBackListener
-import com.example.windowscompactexample.components.pro.uiDatamodels.AdibTextUiDataModel
-import com.example.windowscompactexample.ui.theme.Adib14CaptionRegular
+import androidx.compose.ui.unit.sp
+import java.text.NumberFormat
+import java.util.Locale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,89 +39,78 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()
                     .padding(vertical = 60.dp, horizontal = 20.dp)
             ) { innerPadding ->
-
                 Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                    var rawAmount by remember { mutableStateOf("") }
-
-                    UiAccountSelection(
-                        modifier = Modifier.padding(top = 16.dp),
-                        accountTitle = accountTitleDefaults("Saving account Abudhabi islamic bank * 5014"),
-                        balanceTitle = balanceTitleDefaults("AED 2,666.00"),
-                        selectionIcon = selectionIconDefaults(R.drawable.ic_drop_down),
-                        accountIcon = accountIconDefaults(R.drawable.ic_logo),
-                    )
-
-                    UiSmallInput(
-                        modifier = Modifier.padding(top = 16.dp),
-                        accountTitle = smallInputAccountTitle("From: Mohammed Saleh • 1234"),
-                        amountIcon = amountIcon(R.drawable.ic_logo),
-                        inputDataModel = UiAmountUIDefaults.smallAmountInputProperties(
-                            rawAmount,
-                            "AED"
-                        ),
-                        callBacks = AmountUICallBackListener()
-                    )
-
-                    UIAccountSelectionWithInput(
-                        modifier = Modifier.padding(top = 16.dp),
-                        accountTitle = accountTitleDefaults("From: Mohammed Saleh • 1234"),
-                        balanceTitle = balanceTitleDefaults("Balance: 230,000.00 AED"),
-                        inputAmount = UiAmountUIDefaults.amountInputProperties(
-                            rawAmount,
-                            "AED",
-                            230000.00
-                        ),
-                        selectionIcon = selectionIconDefaults(
-                            R.drawable.ic_drop_down,
-                        ),
-                        amountIcon = amountIcon(
-                            R.drawable.ic_logo,
-                            contentDesc = "Amount Icon"
-                        ),
-                        callBacks = AmountUICallBackListener()
-                    )
-
-                    UiAccountSelectionWithInputDivider(
-                        modifier = Modifier.padding(top = 16.dp),
-                        inputAmount = UiAmountUIDefaults.amountInputProperties(
-                            rawAmount,
-                            "AED",
-                            1000.00
-                        ),
-                        accountTitle = accountTitleDefaults("From: Mohammed Saleh • 1234"),
-                        balanceTitle = balanceTitleDefaults("Balance: 1000 AED"),
-                        selectionIcon = selectionIconDefaults(
-                            R.drawable.ic_drop_down,
-                        ),
-                        amountLabel = AdibTextUiDataModel(
-                            modifier = Modifier.padding(top = 16.dp),
-                            text = "Amount I need:",
-                            textStyle = Adib14CaptionRegular
-                        ),
-                        amountIcon = amountIcon(R.drawable.ic_logo),
-                        callBacks = AmountUICallBackListener()
-                    )
-
-                    UiAccountSelectionWithInputDivider(
-                        modifier = Modifier.padding(top = 16.dp),
-                        inputAmount = UiAmountUIDefaults.amountInputProperties(
-                            rawAmount,
-                            "AED",
-                            0.00
-                        ),
-                        accountTitle = UiAmountUIDefaults.bigInputAccountTitle("From: Mohammed Saleh • 1234"),
-                        balanceTitle = UiAmountUIDefaults.balanceTitle("Balance: 0.00 AED"),
-                        balanceError = UiAmountUIDefaults.balanceError("Insufficient balance"),
-                        selectionIcon = selectionIconDefaults(
-                            R.drawable.ic_drop_down,
-                        ),
-                        amountLabel = UiAmountUIDefaults.amountLabel("Amount I need:"),
-                        amountIcon = amountIcon(R.drawable.ic_logo),
-                        amountError = UiAmountUIDefaults.amountError("Internal server error"),
-                        callBacks = AmountUICallBackListener()
-                    )
+                    ExamplePOSScreen()
                 }
             }
         }
     }
+}
+
+@Composable
+fun ExamplePOSScreen() {
+    var amount by remember { mutableLongStateOf(0L) }
+
+    POSAmountInputField(
+        amountInCents = amount,
+        onAmountChange = { newCents ->
+            amount = newCents
+
+            println()
+        }
+    )
+}
+
+
+@Composable
+fun POSAmountInputField(
+    amountInCents: Long,
+    onAmountChange: (Long) -> Unit,
+    modifier: Modifier = Modifier,
+    currencyLocale: Locale = Locale.US,
+    textStyle: TextStyle = TextStyle.Default.copy(fontSize = 24.sp)
+) {
+    var rawInput by remember { mutableStateOf("") }
+
+    // Format display using NumberFormat
+    val formattedText = remember(rawInput) {
+        val cents = rawInput.toLongOrNull() ?: 0L
+        formatCents(cents, currencyLocale)
+    }
+
+    val textFieldValue = remember(formattedText) {
+        TextFieldValue(
+            text = formattedText,
+            selection = TextRange(formattedText.length)
+        )
+    }
+
+    LaunchedEffect(textFieldValue.text) {
+        onAmountChange.invoke(textFieldValue.text.toLongOrNull()?:0L)
+    }
+
+    BasicTextField(
+        value = textFieldValue,
+        onValueChange = { userInput ->
+            // Keep only digits
+            val digitsOnly = userInput.text.filter(Char::isDigit)
+            rawInput = digitsOnly
+
+        /*    val cents = digitsOnly.toLongOrNull() ?: 0L
+            onAmountChange(cents)*/
+        },
+        modifier = modifier,
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
+        textStyle = textStyle
+    )
+}
+
+
+fun formatCents(cents: Long, locale: Locale): String {
+    val formatter = NumberFormat.getNumberInstance(locale).apply {
+        maximumFractionDigits = 2
+        minimumFractionDigits = 2
+        isGroupingUsed = true
+    }
+    return formatter.format(cents / 100.0)
 }
