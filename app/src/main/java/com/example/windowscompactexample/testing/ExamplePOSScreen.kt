@@ -5,7 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.windowscompactexample.POSAmountInputField
+import com.example.windowscompactexample.components.input.amount.POSAmountInputField
 
 @Composable
 fun ExamplePOSScreen() {
